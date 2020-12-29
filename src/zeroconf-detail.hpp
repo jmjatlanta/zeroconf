@@ -332,7 +332,7 @@ namespace Zeroconf
                     rr.pos = static_cast<size_t>(is.tellg());
 
                     is.read(reinterpret_cast<char*>(&u8), 1); // offset token
-                    if (u8 != MdnsOffsetToken)
+                    if (u8 != MdnsOffsetToken && u8 != MdnsOffsetToken+1)
                     {
                         Log::Warning("Found incorrect offset token while parsing responce");
                         return false;
